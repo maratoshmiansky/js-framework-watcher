@@ -1,19 +1,21 @@
 /* global Chart, axios */
 
 function gitRepoRequest(url) {
-  return axios.get(url).then(function (response) {
-    // handle success
-    // console.log(response.data);
-    let counts = {};
-    counts.stars = response.data.stargazers_count;
-    counts.watchers = response.data.watchers_count;
-    counts.forks = response.data.forks_count;
-    return counts;
-  });
-  // .catch(function (error) {
-  //   // handle error
-  //   console.log(error);
-  // })
+  return axios
+    .get(url)
+    .then(function (response) {
+      // handle success
+      // console.log(response.data);
+      let counts = {};
+      counts.stars = response.data.stargazers_count;
+      counts.watchers = response.data.watchers_count;
+      counts.forks = response.data.forks_count;
+      return counts;
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
   // .then(function () {
   //   // always executed;
   // });
@@ -87,15 +89,6 @@ async function renderData() {
 }
 
 renderData();
-
-// })
-// .catch(function (error) {
-//   // handle error
-//   console.log(error);
-// })
-// .then(function () {
-//   // always executed
-// });
 
 // axios
 //   .get("https://api.github.com/repos/angular/angular.js")
